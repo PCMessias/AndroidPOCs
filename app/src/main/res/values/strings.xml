@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">RecyclerView</string>
+    <string name="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore <b>et dolore magna aliqua</b> Ut enim ad minim veniam.</string>
+    <string name="welcome">Lorem ipsum dolor sit <font color='#FF688550'>consectetur adipiscing elit</font></string>
+    <string name="logo">logo</string>
+    <string name="points_number">30.000</string>
+    <string name="points_subtitle">Lorem ipsum dolor sit</string>
+    <string name="partnership">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</string>
+    <string name="quick_access">Lorem ipsum dolor sit</string>
+    <string name="test1">Teste 1</string>
+    <string name="test2">Teste 2</string>
+    <string name="test3">Teste 3</string>
+    <string name="test4">Teste 4</string>
+</resources>
