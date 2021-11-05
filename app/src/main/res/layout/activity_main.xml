@@ -1,211 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".MainActivity">
 
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <LinearLayout
+        <View
+            android:id="@+id/purpleView"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginBottom="-50dp"
+            android:background="#9E4DAF"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:contentDescription="Logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/diamond_icon" />
+
+        <TextView
+            android:id="@+id/welcomeText"
+            android:layout_width="166dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/welcome"
+            android:textColor="#E8E6E6"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+        <TextView
+            android:id="@+id/subtitleText"
+            android:layout_width="346dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:lineSpacingExtra="4sp"
+            android:text="@string/subtitle"
+            android:textColor="#F5F5F5"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/girlHoldingBag" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/girlHoldingBag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Mulher segurando sacola de compras"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/leather_bag_png"
+            tools:ignore="ImageContrastCheck" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/subtitleText">
+
+            <View
+                android:id="@+id/pointsView"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:background="@drawable/white_rectangle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/partnershipView"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/blue_rectangle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pointsView" />
+
+            <TextView
+                android:id="@+id/points"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-25dp"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/points_number"
+                android:textSize="34sp"
+                app:layout_constraintEnd_toEndOf="@+id/pointsView"
+                app:layout_constraintStart_toStartOf="@+id/pointsView"
+                app:layout_constraintTop_toTopOf="@+id/purpleDiamond" />
+
+            <ImageView
+                android:id="@+id/purpleDiamond"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:contentDescription="Diamante roxo"
+                app:layout_constraintBottom_toBottomOf="@+id/pointsView"
+                app:layout_constraintEnd_toStartOf="@+id/points"
+                app:layout_constraintTop_toTopOf="@+id/pointsView"
+                app:srcCompat="@drawable/diamond_icon" />
+
+            <TextView
+                android:id="@+id/pointsSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/points_subtitle"
+                app:layout_constraintStart_toStartOf="@+id/points"
+                app:layout_constraintTop_toBottomOf="@+id/points" />
+
+            <ImageView
+                android:id="@+id/blueLock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="Cadeado azul"
+                app:layout_constraintEnd_toStartOf="@+id/partnership"
+                app:layout_constraintTop_toTopOf="@+id/partnership"
+                app:srcCompat="@drawable/diamond_icon" />
+
+            <TextView
+                android:id="@+id/partnership"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:lineSpacingExtra="4sp"
+                android:text="@string/partnership"
+                android:textColor="#546E7A"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/purpleDiamond"
+                app:layout_constraintTop_toTopOf="@+id/partnershipView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/quickAccessConstraint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/mainConstraint"
+            <TextView
+                android:id="@+id/quickAccessText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/quick_access"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/quickAccess"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/quickAccessText"
+                card_view:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                tools:itemCount="4"
+                tools:listitem="@layout/list_item" />
 
-                <View
-                    android:id="@+id/purpleView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_marginBottom="-50dp"
-                    android:background="#9E4DAF"
-                    app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <ImageView
-                    android:id="@+id/logo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="24dp"
-                    android:contentDescription="Logo"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/diamond_icon" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:id="@+id/welcomeText"
-                    android:layout_width="166dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="sans-serif-black"
-                    android:text="@string/welcome"
-                    android:textColor="#E8E6E6"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/logo" />
-
-                <TextView
-                    android:id="@+id/subtitleText"
-                    android:layout_width="346dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:lineSpacingExtra="4sp"
-                    android:text="@string/subtitle"
-                    android:textColor="#F5F5F5"
-                    android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/girlHoldingBag" />
-
-                <ImageView
-                    android:id="@+id/girlHoldingBag"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="Mulher segurando sacola de compras"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/leather_bag_png"
-                    tools:ignore="ImageContrastCheck" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="45dp"
-                    android:layout_marginEnd="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/subtitleText">
-
-                    <View
-                        android:id="@+id/pointsView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="100dp"
-                        android:background="@drawable/white_rectangle"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <View
-                        android:id="@+id/partnershipView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="100dp"
-                        android:layout_marginTop="16dp"
-                        android:background="@drawable/blue_rectangle"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/pointsView" />
-
-                    <TextView
-                        android:id="@+id/points"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="-25dp"
-                        android:fontFamily="sans-serif-black"
-                        android:text="@string/points_number"
-                        android:textSize="34sp"
-                        app:layout_constraintEnd_toEndOf="@+id/pointsView"
-                        app:layout_constraintStart_toStartOf="@+id/pointsView"
-                        app:layout_constraintTop_toTopOf="@+id/purpleDiamond" />
-
-                    <ImageView
-                        android:id="@+id/purpleDiamond"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="30dp"
-                        android:contentDescription="Diamante roxo"
-                        app:layout_constraintBottom_toBottomOf="@+id/pointsView"
-                        app:layout_constraintEnd_toStartOf="@+id/points"
-                        app:layout_constraintTop_toTopOf="@+id/pointsView"
-                        app:srcCompat="@drawable/diamond_icon" />
-
-                    <TextView
-                        android:id="@+id/pointsSubtitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/points_subtitle"
-                        app:layout_constraintStart_toStartOf="@+id/points"
-                        app:layout_constraintTop_toBottomOf="@+id/points" />
-
-                    <ImageView
-                        android:id="@+id/blueLock"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:contentDescription="Cadeado azul"
-                        app:layout_constraintEnd_toStartOf="@+id/partnership"
-                        app:layout_constraintTop_toTopOf="@+id/partnership"
-                        app:srcCompat="@drawable/diamond_icon" />
-
-                    <TextView
-                        android:id="@+id/partnership"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="24dp"
-                        android:lineSpacingExtra="4sp"
-                        android:text="@string/partnership"
-                        android:textColor="#546E7A"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/purpleDiamond"
-                        app:layout_constraintTop_toTopOf="@+id/partnershipView" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/quickAccessConstraint"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
-
-                    <TextView
-                        android:id="@+id/quickAccessText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="sans-serif-medium"
-                        android:text="@string/quick_access"
-                        android:textSize="18sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/quickAccess"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="16dp"
-                        android:orientation="horizontal"
-                        tools:listitem="@layout/list_item"
-                        tools:itemCount="4"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/quickAccessText"
-                        card_view:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </LinearLayout>
-    </ScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
