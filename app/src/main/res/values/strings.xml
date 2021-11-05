@@ -8,7 +8,7 @@
     <string name="partnership">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</string>
     <string name="quick_access">Lorem ipsum dolor sit</string>
     <string name="test1">Teste 1</string>
-    <string name="test2">Teste 2</string>
-    <string name="test3">Teste 3</string>
+    <string name="test2">Teste muito grande  2</string>
+    <string name="test3">Teste mais grande ainda que o outro 3</string>
     <string name="test4">Teste 4</string>
 </resources>
