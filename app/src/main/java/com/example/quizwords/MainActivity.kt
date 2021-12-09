@@ -9,11 +9,12 @@ import android.widget.TextView
 class MainActivity : AppCompatActivity() {
     val viewModel = MainViewModel()
 
-    lateinit var button : Button
-    lateinit var editText : EditText
-    lateinit var textView : TextView
+    lateinit var sendButton: Button
+    lateinit var inputColor: EditText
+    lateinit var guessedColors: TextView
+    lateinit var guesses : TextView
 
-    var inputText : String = ""
+    var inputText: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,15 +22,17 @@ class MainActivity : AppCompatActivity() {
         initializeUi()
     }
 
-    fun initializeUi(){
-        button = findViewById(R.id.button)
-        editText  = findViewById(R.id.editText)
-        textView = findViewById(R.id.textView)
-         button.setOnClickListener {
-             inputText = editText.text.toString()
-             textView.text = textView.text.toString() + viewModel.findColor(inputText)
-             editText.setText("")
-         }
+    fun initializeUi() {
+        sendButton = findViewById(R.id.bt_send)
+        inputColor = findViewById(R.id.et_inputColor)
+        guessedColors = findViewById(R.id.tv_guessedColors)
+        guesses = findViewById(R.id.tv_guesses)
+        sendButton.setOnClickListener {
+            inputText = inputColor.text.toString()
+            guessedColors.text = guessedColors.text.toString() + viewModel.findColor(inputText)
+            guesses.text = viewModel.dao.getPoints().toString()
+            inputColor.setText("")
+        }
 
     }
 }
