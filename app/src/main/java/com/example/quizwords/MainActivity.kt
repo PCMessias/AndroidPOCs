@@ -5,9 +5,10 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.lifecycle.Observer
 
 class MainActivity : AppCompatActivity() {
-    val viewModel = MainViewModel()
+    private val viewModel = MainViewModel()
 
     lateinit var sendButton: Button
     lateinit var inputColor: EditText
@@ -20,9 +21,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initializeUi()
+        setupObserver()
     }
 
-    fun initializeUi() {
+    private fun initializeUi() {
         sendButton = findViewById(R.id.bt_send)
         inputColor = findViewById(R.id.et_inputColor)
         guessedColors = findViewById(R.id.tv_guessedColors)
@@ -30,9 +32,14 @@ class MainActivity : AppCompatActivity() {
         sendButton.setOnClickListener {
             inputText = inputColor.text.toString()
             guessedColors.text = guessedColors.text.toString() + viewModel.findColor(inputText)
-            guesses.text = viewModel.dao.getPoints().toString()
             inputColor.setText("")
         }
+    }
 
+    private fun setupObserver(){
+        val guessesObserver = Observer<Int>{
+            newPoints -> guesses.text = newPoints.toString()
+        }
+        viewModel.getPoints().observe(this, guessesObserver)
     }
 }
