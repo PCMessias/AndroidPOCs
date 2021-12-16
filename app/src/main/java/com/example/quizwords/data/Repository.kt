@@ -1,4 +1,4 @@
-package com.example.quizwords
+package com.example.quizwords.data
 
 class Repository {
     val colorsList = listOf(

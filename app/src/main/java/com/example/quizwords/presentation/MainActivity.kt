@@ -1,11 +1,11 @@
-package com.example.quizwords
+package com.example.quizwords.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import androidx.lifecycle.Observer
+import com.example.quizwords.R
 
 class MainActivity : AppCompatActivity() {
     private val viewModel = MainViewModel()
@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var sendButton: Button
     lateinit var inputColor: EditText
     lateinit var guessedColors: TextView
-    lateinit var guesses : TextView
+    lateinit var guesses: TextView
 
     var inputText: String = ""
 
@@ -31,15 +31,17 @@ class MainActivity : AppCompatActivity() {
         guesses = findViewById(R.id.tv_guesses)
         sendButton.setOnClickListener {
             inputText = inputColor.text.toString()
-            guessedColors.text = guessedColors.text.toString() + viewModel.findColor(inputText)
+            viewModel.findColor(inputText)
             inputColor.setText("")
         }
     }
 
-    private fun setupObserver(){
-        val guessesObserver = Observer<Int>{
-            newPoints -> guesses.text = newPoints.toString()
+    private fun setupObserver() {
+        viewModel.pointsLiveData.observe(this) { newPoints ->
+            guesses.text = newPoints.toString()
         }
-        viewModel.getPoints().observe(this, guessesObserver)
+        viewModel.guessedColorsLiveData.observe(this) { newGuessedColors ->
+            guessedColors.text = guessedColors.text.toString() + newGuessedColors
+        }
     }
 }

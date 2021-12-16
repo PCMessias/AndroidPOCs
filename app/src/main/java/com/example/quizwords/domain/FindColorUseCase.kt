@@ -1,4 +1,6 @@
-package com.example.quizwords
+package com.example.quizwords.domain
+
+import com.example.quizwords.data.Repository
 
 class FindColorUseCase {
     val repository: Repository = Repository()
