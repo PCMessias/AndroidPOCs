@@ -7,18 +7,6 @@
     tools:context=".presentation.MainActivity">
 
 
-    <TextView
-        android:id="@+id/tv_guessedColors"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_guesses"
-        tools:text="@tools:sample/lorem" />
-
     <EditText
         android:id="@+id/et_inputColor"
         android:layout_width="0dp"
@@ -27,20 +15,40 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:inputType="textShortMessage"
-        android:hint="Insira uma cor"
+        android:hint="Escolha uma opção"
         android:imeOptions="actionDone"
+        android:inputType="textShortMessage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/bt_send"
+        android:id="@+id/bt_sendPeople"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
-        android:text="Enviar"
+        android:layout_marginTop="32dp"
+        android:text="Pessoas"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_inputColor" />
+
+    <Button
+        android:id="@+id/bt_sendPlanets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Planetas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bt_sendPeople"
+        app:layout_constraintTop_toBottomOf="@+id/et_inputColor" />
+
+    <Button
+        android:id="@+id/bt_sendSpaceships"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Naves"
+        app:layout_constraintEnd_toStartOf="@+id/bt_sendPeople"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_inputColor" />
 
@@ -48,23 +56,35 @@
         android:id="@+id/tv_guessesLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="33dp"
-        android:text="Acertos:"
+        android:layout_marginTop="36dp"
+        android:text="Resposta:"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_send" />
+        app:layout_constraintTop_toBottomOf="@+id/bt_sendPeople" />
 
     <TextView
         android:id="@+id/tv_guesses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_guessesLabel"
         tools:text="1" />
+
+    <TextView
+        android:id="@+id/tv_guessedColors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_guesses"
+        tools:text="@tools:sample/lorem" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

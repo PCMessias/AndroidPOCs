@@ -16,17 +16,57 @@ class MainViewModel : ViewModel() {
     val guessedColorsLiveData : LiveData<String>
     get() = guessedColorsMutableLiveData
 
+    private val responseMutableLiveData = MutableLiveData<List<String>>()
+    val responseListLiveData : LiveData<List<String>>
+        get() = responseMutableLiveData
+
     fun appendColors(color : String) : String = color + "\n"
 
-    fun findColor(color: String) {
-        val result = useCase.execute(color)
+//    fun findColor(color: String) {
+//        val result = useCase.execute(color)
+//
+//        if(result) {
+//            useCase.addGuessedColor(color)
+//            dao.addPoint()
+//            pointsMutableLiveData.postValue(dao.getPoints())
+//            guessedColorsMutableLiveData.postValue(appendColors(color))
+//        }
+//    }
 
-        if(result) {
-            useCase.addGuessedColor(color)
-            dao.addPoint()
-            pointsMutableLiveData.postValue(dao.getPoints())
-            guessedColorsMutableLiveData.postValue(appendColors(color))
-        }
+    fun fetchPeople() {
+        useCase.getPeople().subscribe(
+            { response ->
+                responseMutableLiveData.postValue(response)
+
+            },
+            { error ->
+                error.printStackTrace()
+            }
+        )
+    }
+
+    fun fetchSpaceships() {
+        useCase.getSpaceships().subscribe(
+            { response ->
+                responseMutableLiveData.postValue(response)
+
+            },
+            { error ->
+                error.printStackTrace()
+            }
+        )
+    }
+
+    fun fetchPlanets() {
+        useCase.getPlanets().subscribe(
+            { response ->
+                responseMutableLiveData.postValue(response)
+
+            },
+            { error ->
+                error.printStackTrace()
+            }
+        )
     }
 
 }

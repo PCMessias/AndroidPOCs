@@ -10,7 +10,9 @@ import com.example.quizwords.R
 class MainActivity : AppCompatActivity() {
     private val viewModel = MainViewModel()
 
-    lateinit var sendButton: Button
+    lateinit var sendPeopleButton: Button
+    lateinit var sendSpaceshipsButton: Button
+    lateinit var sendPlanetsButton: Button
     lateinit var inputColor: EditText
     lateinit var guessedColors: TextView
     lateinit var guesses: TextView
@@ -25,13 +27,28 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initializeUi() {
-        sendButton = findViewById(R.id.bt_send)
+        sendPeopleButton = findViewById(R.id.bt_sendPeople)
+        sendSpaceshipsButton = findViewById(R.id.bt_sendSpaceships)
+        sendPlanetsButton = findViewById(R.id.bt_sendPlanets)
         inputColor = findViewById(R.id.et_inputColor)
         guessedColors = findViewById(R.id.tv_guessedColors)
         guesses = findViewById(R.id.tv_guesses)
-        sendButton.setOnClickListener {
+        sendPeopleButton.setOnClickListener {
             inputText = inputColor.text.toString()
-            viewModel.findColor(inputText)
+            guessedColors.setText("")
+            viewModel.fetchPeople()
+            inputColor.setText("")
+        }
+        sendSpaceshipsButton.setOnClickListener {
+            inputText = inputColor.text.toString()
+            guessedColors.setText("")
+            viewModel.fetchSpaceships()
+            inputColor.setText("")
+        }
+        sendPlanetsButton.setOnClickListener {
+            inputText = inputColor.text.toString()
+            guessedColors.setText("")
+            viewModel.fetchPlanets()
             inputColor.setText("")
         }
     }
@@ -42,6 +59,11 @@ class MainActivity : AppCompatActivity() {
         }
         viewModel.guessedColorsLiveData.observe(this) { newGuessedColors ->
             guessedColors.text = guessedColors.text.toString() + newGuessedColors
+        }
+        viewModel.responseListLiveData.observe(this) { responseList ->
+            responseList.forEach { item ->
+                guessedColors.text = guessedColors.text.toString() + item + '\n'
+            }
         }
     }
 }
