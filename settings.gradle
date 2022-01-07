@@ -8,3 +8,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "QuizWords"
 include ':app'
+include ':features'
+include ':navigator'

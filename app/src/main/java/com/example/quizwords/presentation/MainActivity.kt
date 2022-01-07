@@ -1,13 +1,18 @@
 package com.example.quizwords.presentation
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import br.com.features.ResponseActivity
+import br.com.navigator.DependecyInjector
+import br.com.navigator.MainNavigator
 import com.example.quizwords.R
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainNavigator {
     private val viewModel = MainViewModel()
 
     lateinit var sendPeopleButton: Button
@@ -22,9 +27,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        DependecyInjector.mainNavigator = this
         initializeUi()
         setupObserver()
     }
+
+    override fun navigateMainActivity(context : Context): Intent = Intent(context, MainActivity::class.java)
 
     private fun initializeUi() {
         sendPeopleButton = findViewById(R.id.bt_sendPeople)
@@ -64,6 +72,15 @@ class MainActivity : AppCompatActivity() {
             responseList.forEach { item ->
                 guessedColors.text = guessedColors.text.toString() + item + '\n'
             }
+            sendResponseData(guessedColors.text.toString())
         }
+    }
+
+    private fun sendResponseData(response : String){
+        val send = Intent(this@MainActivity, ResponseActivity::class.java)
+        val b = Bundle()
+        b.putSerializable("responseText", response)
+        send.putExtras(b)
+        startActivity(send)
     }
 }
